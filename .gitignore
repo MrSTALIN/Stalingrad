@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Obiektówka
+{
+   public abstract class Czołg : IMaszyna
+    {
+        public abstract int Strzal();
+        public virtual bool Status()
+        {
+           return false;
+        }
+        
+    }
+   public class X
+   {
+
+   }
+   public class TankDestroyer : Czołg    //, X ---> nie da się dziedziczyć z dwóch klas 
+   {
+       public override bool Status()
+       {
+           return true;
+       }
+
+       private int pociski;
+       private int predkosc;
+       public TankDestroyer(int pociski1, int predkosc1)
+       {
+            pociski = pociski1;
+            predkosc = predkosc1;
+       }
+       public override int Strzal()
+         {
+             while (pociski > 0 && predkosc >= 0 && predkosc <= 5 && Status())
+             { 
+                 pociski--;
+                 Console.WriteLine("STRZAŁ! \n TD pozostalo  " + pociski + "  pociskow\n");
+
+             }
+             
+             return pociski;
+         }
+       
+           
+   }
+   public class Medium : Czołg
+   {
+       public override bool Status()
+       {
+           return true;
+       }
+
+       private int pociski;
+       private int predkosc;
+       public Medium(int pociski1, int predkosc1)
+       {
+            pociski = pociski1;
+            predkosc = predkosc1;
+       }
+       public override int Strzal()
+         {
+             while (pociski > 0 && predkosc >= 0 && predkosc <= 17 && Status())
+             { 
+                 pociski--;
+                 Console.WriteLine("STRZAŁ! \n Medium pozostało  " + pociski + "  pociskow\n");
+             }
+             
+             return pociski;
+         }       
+   }
+   public class Lightweight : Czołg
+   {
+       public override bool Status()
+       {
+           return true;
+       }
+
+       private int pociski;
+       private int predkosc;
+       
+       public Lightweight(int pociski1, int predkosc1)
+       {
+            pociski = pociski1;
+            predkosc = predkosc1;
+       }
+       public override int Strzal()
+         {
+             while (pociski > 0 && predkosc >= 0 && predkosc <= 50 && Status())
+             { 
+                 pociski--;
+                 Console.WriteLine("STRZAŁ! \n LT pozstało  " + pociski + "  pocisków\n");
+             }
+             
+             return pociski;
+         }
+            
+   }
+
+    interface IMaszyna
+    {
+        bool Status();
+
+    }
+}
