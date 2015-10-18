@@ -19,7 +19,7 @@ namespace Obiektówka
    {
 
    }
-   public class TankDestroyer : Czołg    //, X ---> nie da się dziedziczyć z dwóch klas 
+   public class TankDestroyer : Czołg    //, X ---> nie daa się dziedziczyć z dwóch klas 
    {
        public override bool Status()
        {
