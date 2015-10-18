@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Obiektówka
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Czołg> Rodzaje = new List<Czołg>();
+            Rodzaje.Add(new TankDestroyer(10, 4));
+            Rodzaje.Add(new Medium(35, 15));
+            Rodzaje.Add(new Lightweight(20, 30));
+            
+            foreach (Czołg x in Rodzaje)
+            {
+                x.Strzal();
+            }
+            Console.ReadKey();
+        }
+
+    }
+}
